@@ -1,0 +1,11 @@
+services:
+    text-to-speech:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '${APP_PORT:-8000}:8000'
+        volumes:
+            - '.:/build'
